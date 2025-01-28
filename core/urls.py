@@ -1,5 +1,8 @@
 from django.urls import path
-from .views import SentimentAnalysisView , HelloView ,FileUploadView
+from .views  import SentimentAnalysisView, HelloView, FileUploadView, UploadedFileViewSet
+from rest_framework.routers import DefaultRouter
+router = DefaultRouter()
+router.register("files", UploadedFileViewSet, basename="uploadedfile")
 
 urlpatterns = [
     path('analyze/', SentimentAnalysisView.as_view(), name='analyze'),
