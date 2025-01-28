@@ -16,13 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.views import SentimentAnalysisView , HelloView
+from core.views import SentimentAnalysisView , HelloView,FileUploadView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('core.urls')),  # Include the correct app's URLs
     path('analyze/', SentimentAnalysisView.as_view(), name='analyze'),
     path('hello/', HelloView.as_view(), name='hello'),
+    path("upload/", FileUploadView.as_view(), name="file-upload"),
 
 ]
 
